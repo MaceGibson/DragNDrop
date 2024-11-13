@@ -154,6 +154,8 @@ function mouseDown(e) {
 
 // Touch-based drag and drop for touchscreens
 function touchStart(e) {
+    e.preventDefault(); // Prevents default touch behavior from the beginning
+
     const item = e.target;
     const touch = e.touches[0];
     startX = touch.clientX - item.offsetLeft;
@@ -171,7 +173,7 @@ function touchStart(e) {
         document.removeEventListener('touchend', touchEnd);
     }
 
-    document.addEventListener('touchmove', touchMove);
+    document.addEventListener('touchmove', touchMove, { passive: false }); // Set passive to false
     document.addEventListener('touchend', touchEnd);
 }
 
