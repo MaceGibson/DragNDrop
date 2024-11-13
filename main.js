@@ -120,16 +120,19 @@ function createDraggableItem(type, label, fontSize) {
 
     container.appendChild(newItem);
 
-    // Make the new item draggable within the container
+    // Make the new item draggable with mouse or touch events
     newItem.addEventListener('mousedown', mouseDown);
+    newItem.addEventListener('touchstart', touchStart);
 
-    // Add delete functionality
-    newItem.addEventListener('contextmenu', (e) => {
-        e.preventDefault();
-        newItem.remove(); // Remove the item on right-click
-    });
+    // Add delete button for each item
+    const deleteButton = document.createElement('button');
+    deleteButton.innerText = '✖';
+    deleteButton.classList.add('delete-btn');
+    deleteButton.addEventListener('click', () => newItem.remove());
+    newItem.appendChild(deleteButton);
 }
 
+// Mouse-based drag and drop
 function mouseDown(e) {
     const item = e.target;
     startX = e.clientX - item.offsetLeft;
@@ -149,9 +152,30 @@ function mouseDown(e) {
     document.addEventListener('mouseup', mouseUp);
 }
 
+// Touch-based drag and drop for touchscreens
+function touchStart(e) {
+    const item = e.target;
+    const touch = e.touches[0];
+    startX = touch.clientX - item.offsetLeft;
+    startY = touch.clientY - item.offsetTop;
+
+    function touchMove(e) {
+        const touch = e.touches[0];
+        item.style.left = touch.clientX - startX + 'px';
+        item.style.top = touch.clientY - startY + 'px';
+    }
+
+    function touchEnd() {
+        document.removeEventListener('touchmove', touchMove);
+        document.removeEventListener('touchend', touchEnd);
+    }
+
+    document.addEventListener('touchmove', touchMove);
+    document.addEventListener('touchend', touchEnd);
+}
+
 // Document-wide click listener to close subToolbar and sizeToolbar when clicking outside
 document.addEventListener('click', (event) => {
-    // Check if the click is outside of the main toolbar, subToolbar, and sizeToolbar
     if (!mainToolbar.contains(event.target) && !subToolbar.contains(event.target) && !sizeToolbar.contains(event.target)) {
         subToolbar.style.display = 'none';
         sizeToolbar.style.display = 'none';

@@ -125,3 +125,17 @@ body {
     cursor: move;
 }
 
+.delete-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 2px;
+}
+
+
