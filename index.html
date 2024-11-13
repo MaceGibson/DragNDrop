@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DragNDrop Landscaping</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+</head>
+<body>
+    <div id="toolbar">
+        <div class="category" data-category="tree">🌲 Tree</div>
+        <div class="category" data-category="bush">🌳 Bush</div>
+        <div class="category" data-category="rock">🪨 Rock</div>
+    </div>
+    
+    <div id="subToolbar" style="display: none;"></div>
+    <div id="sizeToolbar" style="display: none;">
+        <div class="size-option" data-size="small">Small</div>
+        <div class="size-option" data-size="medium">Medium</div>
+        <div class="size-option" data-size="large">Large</div>
+    </div>
+    
+    <div id="container">
+        <div id="uploadOverlay">
+            <input type="file" id="upload" accept="image/*" style="display: none;">
+            <button id="uploadButton">Upload Background</button>
+        </div>
+        <!-- Items will be dropped here -->
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

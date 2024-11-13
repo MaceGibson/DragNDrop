@@ -1,0 +1,127 @@
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Styles for the main toolbar */
+#toolbar {
+    background-color: #333;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    justify-content: center;
+}
+
+.category {
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    text-align: center;
+    width: 60px;
+    user-select: none;
+}
+
+/* Sub-toolbar styles */
+#subToolbar {
+    position: absolute;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    display: none; /* Hidden by default */
+    z-index: 10; /* Bring to the front */
+}
+
+.sub-item {
+    cursor: pointer;
+    font-size: 32px;
+    padding: 5px;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #4CAF50;
+}
+
+
+
+.item {
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    text-align: center;
+    width: 60px;
+    user-select: none;
+}
+
+#container {
+    position: relative;
+    flex-grow: 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(#ffffff50 .1em, transparent .1em),
+                      linear-gradient(90deg, #ffffff50 .1em, transparent .1em);
+    background-size: 4em 4em;
+    pointer-events: none; /* Prevent gridlines from interfering with dragging */
+}
+
+#uploadOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#uploadOverlay button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#sizeToolbar {
+    position: absolute;
+    background-color: #555;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    gap: 10px;
+    display: none; /* Hidden by default */
+    z-index: 10;
+}
+
+.size-option {
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: white;
+    background-color: #4CAF50;
+    border-radius: 4px;
+    user-select: none;
+    text-align: center;
+}
+
+/* Remove any potential font-size conflicts for .draggable items */
+.draggable {
+    position: absolute;
+    cursor: move;
+}
+
