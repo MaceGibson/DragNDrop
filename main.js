@@ -160,6 +160,7 @@ function touchStart(e) {
     startY = touch.clientY - item.offsetTop;
 
     function touchMove(e) {
+        e.preventDefault(); // Prevent page scrolling
         const touch = e.touches[0];
         item.style.left = touch.clientX - startX + 'px';
         item.style.top = touch.clientY - startY + 'px';
