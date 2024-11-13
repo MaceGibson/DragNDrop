@@ -8,6 +8,7 @@ const uploadButton = document.getElementById('uploadButton');
 const uploadOverlay = document.getElementById('uploadOverlay');
 const subToolbar = document.getElementById('subToolbar');
 const sizeToolbar = document.getElementById('sizeToolbar');
+const mainToolbar = document.getElementById('toolbar');
 
 // Categories and their specific items
 const items = {
@@ -20,7 +21,7 @@ const items = {
 const sizeMap = {
     small: '48px',  // Small
     medium: '98px', // Medium
-    large: '220px'   // Large
+    large: '220px'  // Large
 };
 
 // Store the selected item type and label for use when dropping
@@ -115,12 +116,18 @@ function createDraggableItem(type, label, fontSize) {
     // Default position to center of container for user to drag and position
     newItem.style.left = '50%';
     newItem.style.top = '50%';
-    newItem.style.transform = 'translate(-50%, -50%)'; // Center the item initially
+    newItem.style.transform = 'translate(-50%, -50%)';
 
     container.appendChild(newItem);
 
     // Make the new item draggable within the container
     newItem.addEventListener('mousedown', mouseDown);
+
+    // Add delete functionality
+    newItem.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        newItem.remove(); // Remove the item on right-click
+    });
 }
 
 function mouseDown(e) {
@@ -141,3 +148,13 @@ function mouseDown(e) {
     document.addEventListener('mousemove', mouseMove);
     document.addEventListener('mouseup', mouseUp);
 }
+
+// Document-wide click listener to close subToolbar and sizeToolbar when clicking outside
+document.addEventListener('click', (event) => {
+    // Check if the click is outside of the main toolbar, subToolbar, and sizeToolbar
+    if (!mainToolbar.contains(event.target) && !subToolbar.contains(event.target) && !sizeToolbar.contains(event.target)) {
+        subToolbar.style.display = 'none';
+        sizeToolbar.style.display = 'none';
+        selectedItem = { type: '', label: '' }; // Clear selected item
+    }
+});
