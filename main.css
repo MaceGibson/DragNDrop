@@ -1,10 +1,10 @@
-body {
+/* Updated body to ensure full viewport coverage */
+html, body {
     padding: 0;
     margin: 0;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    width: 100vh;
 }
 
 /* Styles for the main toolbar */
@@ -51,8 +51,6 @@ body {
     background-color: #4CAF50;
 }
 
-
-
 .item {
     padding: 8px;
     border-radius: 4px;
@@ -63,10 +61,13 @@ body {
     user-select: none;
 }
 
+/* Updated #container to ensure it covers full viewport with scaled background */
 #container {
     position: relative;
     flex-grow: 1;
-    background-size: cover;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-size: cover; /* Scale background image to cover entire container */
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -138,5 +139,3 @@ body {
     font-size: 12px;
     padding: 2px;
 }
-
-
