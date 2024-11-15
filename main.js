@@ -14,7 +14,7 @@ const mainToolbar = document.getElementById('toolbar');
 const items = {
     tree: ['🌲 Pine', '🌴 Palm', '🎄 Spruce'],
     bush: ['🌿 Fern', '🍃 Leafy', '🌵 Cactus'],
-    rock: ['🪨 Boulder', '💎 Crystal', '⚒️ Gravel']
+    rock: ['🌷 Tulip', '🌺 Hibiscus', '🌻 Sunflower']
 };
 
 // Simplified sizes with corresponding font sizes for scale
