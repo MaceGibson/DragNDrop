@@ -13,7 +13,7 @@ const mainToolbar = document.getElementById('toolbar');
 // Categories and their specific items
 const items = {
     trees: ['🌲 Pine', '🌴 Palm', '🎄 Spruce'],
-    shrubs: ['🌿 Fern', '🍃 Leafy', '🌵 Cactus'],
+    shrubs: ['🌿 Fern', '🌳 Bush', '🌵 Cactus'],
     flowers: ['🌷 Tulip', '🌺 Hibiscus', '🌻 Sunflower']
 };
 
