@@ -129,8 +129,8 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    background: transparent;
-    color: black;
+    background: transparent !important;
+    color: black !important;
     border: none;
     border-radius: 50%;
     cursor: pointer;
