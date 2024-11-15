@@ -12,9 +12,9 @@ const mainToolbar = document.getElementById('toolbar');
 
 // Categories and their specific items
 const items = {
-    tree: ['🌲 Pine', '🌴 Palm', '🎄 Spruce'],
-    bush: ['🌿 Fern', '🍃 Leafy', '🌵 Cactus'],
-    rock: ['🌷 Tulip', '🌺 Hibiscus', '🌻 Sunflower']
+    trees: ['🌲 Pine', '🌴 Palm', '🎄 Spruce'],
+    shrubs: ['🌿 Fern', '🍃 Leafy', '🌵 Cactus'],
+    flowers: ['🌷 Tulip', '🌺 Hibiscus', '🌻 Sunflower']
 };
 
 // Simplified sizes with corresponding font sizes for scale
